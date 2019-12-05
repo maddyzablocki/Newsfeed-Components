@@ -8,6 +8,27 @@ let menuItems = [
   'Music',
   'Log Out'
 ];
+ 
+function createMenu(array) {
+  const menuDiv = document.createElement("div");
+  menuDiv.classList.add("menu");
+
+  const unordered = document.createElement("ul");
+  menuDiv.appendChild(unordered);
+
+  array.forEach(item => {
+    const listItem = document.createElement("li");
+    listItem.textContent = `${item}`;
+    unordered.appendChild(listItem);
+  });
+
+  const menuButton = document.querySelector(".menu-button");
+  menuButton.addEventListener("click", () => {
+    menuDiv.classList.toggle("menu--open");
+  });
+  return menuDiv;
+}
+document.querySelector(".header").appendChild(createMenu(menuItems));
 
 /* 
 
